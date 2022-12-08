@@ -6,6 +6,8 @@ import Head from "./Head";
 import SimpleFooter from "./SimpleFooter";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Alert from '@mui/material/Alert';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const FreeRegister = () => {
@@ -29,11 +31,22 @@ const FreeRegister = () => {
   }
 
    const newSingUp = () => {
-      if (!email,!password,!number,!displayName,!gender,!profile,!birth) {
+      if (!email||!password||!number||!displayName||!gender||!profile||!birth) {
         setMessage(<Alert severity="error">Please fill in all required fields</Alert>)
       }else{
       signUp(email,password,number,displayName,gender,profile,birth)
       navigate({pathname:"/profile-deatils"})
+      // setMessage(<Alert severity="success">Registration success</Alert>)
+      toast.success('Registration Success!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
       }
    }
   
@@ -42,8 +55,9 @@ const FreeRegister = () => {
     <Section>
       <Head />
       <div className="container">
-       
-        <div className="row">
+       <ToastContainer/>
+      <form onSubmit={newSingUp}>
+      <div className="row">
           <div className="col-md-3"></div>
 
           <div className="col-md-6">
@@ -55,14 +69,21 @@ const FreeRegister = () => {
                   <label>Profile For</label>
                 </div>
                 <div className="col-md-9">
-                  <select value={profile} onChange={(e)=>setProfile(e.target.value)}  class="select">
-                  <option>Select</option>
+                  <select
+                  autoComplete="off"
+                  
+                  required
+                   value={profile} onChange={(e)=>setProfile(e.target.value)}  class="select">
+                  <option value="" disabled >Select</option>
                       <option>Son</option>
                       <option>Self</option>
                       <option>Brother</option>
                       <option>Sister</option>
                       <option>Daughter</option>
                   </select>
+                  
+                    
+                  
                 </div>
               </div>
             </div>
@@ -73,7 +94,10 @@ const FreeRegister = () => {
                   <label>Full Name</label>
                 </div>
                 <div className="col-md-9">
-                  <input  value={displayName} onChange={(e)=>setDisplayName(e.target.value)} placeholder="Enter Name" type="text"></input>
+                  <input
+                  autoComplete="off"
+                  required
+                    value={displayName} onChange={(e)=>setDisplayName(e.target.value)} placeholder="Enter Name" type="text"></input>
                 </div>
               </div>
             </div>
@@ -84,8 +108,11 @@ const FreeRegister = () => {
                   <label>Gender</label>
                 </div>
                 <div className="col-md-9">
-                  <select value={gender} onChange={(e)=>setGender(e.target.value)} class="select">
-                    <option>Select</option>
+                  <select value={gender}
+                  autoComplete="off"
+                  required
+                   onChange={(e)=>setGender(e.target.value)} class="select">
+                    <option value="" disabled>Select</option>
                     <option>Female</option>
                     <option>Male</option>
                   </select>
@@ -99,7 +126,10 @@ const FreeRegister = () => {
                   <label>Date of Birth</label>
                 </div>
                 <div className="col-md-9">
-                  <input value={birth} onChange={(e)=>setBirth(e.target.value)} type="date" id="birthday" name="birthday"></input>
+                  <input value={birth}
+                  autoComplete="off"
+                  required
+                   onChange={(e)=>setBirth(e.target.value)} type="date" id="birthday" name="birthday"></input>
                 </div>
               </div>
             </div>
@@ -112,10 +142,10 @@ const FreeRegister = () => {
                 <div className="col-md-9">
                   <input
                   value={number} onChange={(e)=>setNumber(e.target.value)}
-                    type="tel"
+                    type="number"
                     name="phone"
                     placeholder="123-45-678"
-                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                    autoComplete="off"
                     required
                   />
                 </div>
@@ -128,7 +158,8 @@ const FreeRegister = () => {
                   <label>Email Id</label>
                 </div>
                 <div className="col-md-9">
-                  <input value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Create Email Id" type="email"></input>
+                  <input value={email} autoComplete="off"
+                  required onChange={(e)=>setEmail(e.target.value)} placeholder="Create Email Id" type="email"></input>
                 </div>
               </div>
             </div>
@@ -143,8 +174,10 @@ const FreeRegister = () => {
                   type={showPassword ? "text" : "password"}
                   value={password} onChange={(e)=>setPassword(e.target.value)}
                     placeholder="Create New Password"
-                    name="pwd"
-                    maxlength="8"
+                    autoComplete="off"
+                            required
+
+                    maxlength="12"
                   />
                   <p onClick={showText} style={{marginLeft:"90%",marginTop:"-35px"}}> {showPassword ? (
                                   <Visibility style={{color:"black"}} onClick={showText} />
@@ -156,7 +189,7 @@ const FreeRegister = () => {
             </div>
             <div className="col-12">
               <div className="btn">
-                <button onClick={newSingUp}>Register Me</button>
+                <button type="submit" value="Submit">Register Me</button>
               </div>
               <span>
                 By clicking on Register me, you confirm that you accept the
@@ -167,6 +200,7 @@ const FreeRegister = () => {
 
           <div className="col-md-3"></div>
         </div>
+      </form>
       </div>
       <SimpleFooter/>
     </Section>

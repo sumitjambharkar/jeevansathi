@@ -449,7 +449,7 @@ const HomeSection = () => {
           </Filtter>
         </SectionFiltter>
         <SectionCard>
-          <Card>
+          
             {data
               .filter(
                 (doc) =>
@@ -543,7 +543,7 @@ const HomeSection = () => {
                   ) : null}
                 </>
               ))}
-          </Card>
+         
         </SectionCard>
       </Section>
       <Footer/>
@@ -556,12 +556,13 @@ export default HomeSection;
 const Section = styled.div`
   display: flex;
   width: 100%;
-  overflow: hidden;
+  
+  height: 100%;
 `;
 
 const SectionFiltter = styled.div`
   padding: 1%;
-
+  
   @media (max-width: 768px) {
     display: none;
   }
@@ -570,9 +571,10 @@ const SectionFiltter = styled.div`
 const SectionCard = styled.div`
   width:100%;
   padding: 1%;
-
+  display:flex;
+  flex-wrap:wrap;
   @media (max-width: 768px) {
-    width: 100%;
+    width: 80%;
   }
 `;
 
@@ -581,14 +583,9 @@ const Filtter = styled.div`
   min-height: 100vh;
   padding:10px;
 `;
-const Card = styled.div`
-  display: flax;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
 
 const SingleCard = styled.div`
-  width:220px;
+  width:200px;
   display: flex;
   justify-content: center;
   flex-direction: column;

@@ -1,8 +1,40 @@
 import React from "react";
 import styled from "styled-components";
 import NightlifeOutlinedIcon from '@mui/icons-material/NightlifeOutlined';
+import { useState } from "react";
+import useAuth from "../../useContext/useAuth";
+import { db } from "../../../firebase";
 
-const Lifestyle = () => {
+const Lifestyle = ({habit,asset,language,blood}) => {
+
+  const {user} = useAuth()
+  
+  console.log(user);
+  const [show, setShow] = useState(true);
+  const [editData, setEditData] = useState({
+    habit:"",asset:"",language:"",blood:""
+  })
+
+  const handleEdit = () => {
+    setEditData({habit,asset,language,blood});
+    setShow(false);
+  };
+
+  const handleSave = () => {
+    db.collection("users").doc(user.uid).update({
+      habit:editData.habit,
+      asset:editData.asset,
+      language:editData.language,
+      blood:editData.blood
+    });
+    setShow(true);
+  }
+
+  const handalChange = (e) => {
+    setEditData({ ...editData, [e.target.name]: e.target.value });
+  };
+
+
   return (
     <Container className="container">
       <div className="row">
@@ -14,15 +46,17 @@ const Lifestyle = () => {
               Lifestyle
             </div>
             <div className="title">
-              <span>Edit</span>
+            {show? <span onClick={()=>handleEdit({habit,language,asset,blood})}>Edit</span>:null}
             </div>
           </div>
-          <div className="row">
+          {show?
+          <>
+           <div className="row">
             <div className="col-5">
               <ul>
                 <li>Habits</li>
                 <li>
-                  <span>Dietary Habits?, Drinking Habits?, Smoking Habits?</span>
+                  <span>{habit}</span>
                 </li>
               </ul>
             </div>
@@ -30,7 +64,46 @@ const Lifestyle = () => {
               <ul>
                 <li>Assets</li>
                 <li>
-                  <span>Own a house?, Own a car?e</span>
+                  <span>{asset}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="row">
+          <div className="col-5">
+            <ul>
+              <li>Languages Know</li>
+              <li>
+                <span>{language}</span>
+              </li>
+            </ul>
+          </div>
+          <div className="col-5">
+            <ul>
+              <li>Blood Group</li>
+              <li>
+                <span>{blood}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+          </>
+          :
+          <>
+          <div className="row">
+            <div className="col-5">
+              <ul>
+                <li>Habits</li>
+                <li>
+                  <input name="habit" value={editData.habit} onChange={handalChange}/>
+                </li>
+              </ul>
+            </div>
+            <div className="col-5">
+              <ul>
+                <li>Assets</li>
+                <li>
+                  <input name="asset" value={editData.asset} onChange={handalChange}/>
                 </li>
               </ul>
             </div>
@@ -40,7 +113,7 @@ const Lifestyle = () => {
               <ul>
                 <li>Languages Known</li>
                 <li>
-                  <span>Not filled in</span>
+                  <input name="blood" value={editData.blood} onChange={handalChange}/>
                 </li>
               </ul>
             </div>
@@ -48,29 +121,17 @@ const Lifestyle = () => {
               <ul>
                 <li>Blood Group</li>
                 <li>
-                  <span>1 brother of which 1 married</span>
+                  <input name="language" value={editData.language} onChange={handalChange}/>
                 </li>
               </ul>
             </div>
+            <div className="btn">
+                  <button onClick={handleSave}>Save</button>
+                  <button onClick={handleSave}>Cancel</button>
+                </div>
           </div>
-          <div className="row">
-            <div className="col-5">
-              <ul>
-                <li>Special Cases</li>
-                <li>
-                  <span>Not filled in</span>
-                </li>
-              </ul>
-            </div>
-            <div className="col-5">
-              <ul>
-                <li>Gothra (maternal)</li>
-                <li>
-                  <span>Not filled in</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+          </>
+          }
         </div>
         <div className="col-1"></div>
       </div>
@@ -117,6 +178,48 @@ const Container = styled.div`
   .detail {
     display: flex;
     justify-content: space-around;
+  }
+  .title span {
+    color: #d9475c;
+    font-size: 16px;
+    font-family: "Roboto", "sans-serif";
+    font-weight: 300;
+    cursor: pointer;
+  }
+  li input {
+    width: 100%;
+    padding: 12px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #aeaeae;
+  }
+  textarea {
+    padding: 6px;
+  }
+  li input,
+  select,textarea:focus {
+    outline: none;
+  }
+  li select {
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #aeaeae;
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+  }
+  .btn button {
+    background-color: #ffa500;
+    width: 120px;
+    height: 100%;
+    padding: 4px;
+    margin: 4px;
+    font-size: larger;
+    color: white;
+    border: none;
   }
   @media (max-width:600px) {
     li {

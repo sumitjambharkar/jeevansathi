@@ -40,7 +40,8 @@ const ProfileDetails = () => {
     <Section>
         <Head/>
       <div className="container">
-        <div className="row">
+       <form onSubmit={profileDetails}>
+       <div className="row">
           <div className="col-md-3"></div>
 
           <div className="col-md-6">
@@ -52,7 +53,8 @@ const ProfileDetails = () => {
                   <label>Mother Tongue</label>
                 </div>
                 <div className="col-md-9">
-                  <select value={tounge} onChange={(e)=>setTounge(e.target.value)}>
+                  <select required value={tounge} onChange={(e)=>setTounge(e.target.value)}>
+                  <option value=""  disabled>Select </option>
                     {tou.map((doc)=>(
                         <>
                         
@@ -70,7 +72,8 @@ const ProfileDetails = () => {
                   <label>Religion</label>
                 </div>
                 <div className="col-md-9">
-                <select value={religion} onChange={(e)=>setReligion(e.target.value)}>
+                <select required value={religion} onChange={(e)=>setReligion(e.target.value)}>
+                <option value=""  disabled>Select</option>
                 {rel.map((doc)=>(
                         <>
                        
@@ -88,7 +91,8 @@ const ProfileDetails = () => {
                   <label>Caste</label>
                 </div>
                 <div className="col-md-9">
-                <select value={community} onChange={(e)=>setCommunity(e.target.value)}>
+                <select required value={community} onChange={(e)=>setCommunity(e.target.value)}>
+                <option value=""  disabled>Select</option>
                 {cas.map((doc)=>(
                         <>
                         
@@ -106,8 +110,8 @@ const ProfileDetails = () => {
                   <label>Manglik</label>
                 </div>
                 <div className="col-md-9">
-                <select value={manglik} onChange={(e)=>setManglik(e.target.value)}>
-                <option>Select</option>
+                <select required value={manglik} onChange={(e)=>setManglik(e.target.value)}>
+                <option value="" disabled>Select</option>
                 <option>Manglik</option>
                 <option>Non-Manglik</option>
                   </select>
@@ -121,8 +125,8 @@ const ProfileDetails = () => {
                   <label>horoscope</label>
                 </div>
                 <div className="col-md-9">
-                <select value={horoscope} onChange={(e)=>setHoroscope(e.target.value)}>
-                <option>Select</option>
+                <select required value={horoscope} onChange={(e)=>setHoroscope(e.target.value)}>
+                <option value="" disabled>Select</option>
               <option>Yes</option>
               <option>No</option>
                   </select>
@@ -136,8 +140,8 @@ const ProfileDetails = () => {
                   <label>Marital Status</label>
                 </div>
                 <div className="col-md-9">
-                <select value={maritalStatus} onChange={(e)=>setMaritalStatus(e.target.value)}>
-                <option>Select</option>
+                <select required value={maritalStatus} onChange={(e)=>setMaritalStatus(e.target.value)}>
+                <option value="" disabled>Select</option>
               <option>Married</option>
               <option>Never Married</option>
               <option>Divorce</option>
@@ -152,7 +156,8 @@ const ProfileDetails = () => {
                   <label>Height</label>
                 </div>
                 <div className="col-md-9">
-                <select value={height} onChange={(e)=>setHeight(e.target.value)}>
+                <select required value={height} onChange={(e)=>setHeight(e.target.value)}>
+                <option value=""  disabled>Select</option>
                 {hei.map((doc)=>(
                         <>
                         
@@ -170,20 +175,21 @@ const ProfileDetails = () => {
                   <label>Yourself</label>
                 </div>
                 <div className="col-md-9">
-                  <textarea value={about} onChange={(e)=>setAbout(e.target.value)} placeholder="Tell me about you self" rows="4"/>
+                  <textarea required autoComplete="off" value={about} onChange={(e)=>setAbout(e.target.value)} placeholder="Tell me about you self" rows="4"/>
                 </div>
               </div>
             </div>
             
             <div className="col-12">
             <div className="btn">
-            <button onClick={profileDetails}>Continue</button>
+            <button type="submit" value="Submit">Continue</button>
             </div>
             </div>
            
           </div>
           <div className="col-md-3"></div>
         </div>
+       </form>
       </div>
     </Section>
     <SimpleFooter/>

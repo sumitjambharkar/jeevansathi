@@ -1,67 +1,68 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { Container } from "@mui/material";
+import { Avatar, Container } from "@mui/material";
 import { Button } from "@mui/material";
+import { Helmet } from "react-helmet";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import girl from "../image/girl.jpeg";
 import man from "../image/man.jpeg";
 import SearchIcon from "@mui/icons-material/Search";
-import {age,hei,tou,rel,cit,cas,sta} from '../firstPage/data'
 import useAuth from "../useContext/useAuth";
-import { db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { db } from "../../firebase";
+import { cit, sta, age, hei, rel, tou, cas } from '../firstPage/data'
 import Footer from "../firstPage/Footer";
 
-const NearMe = () => {
-   const navigate = useNavigate()
-   const {user} = useAuth()
-  function calculate_age(dob) {
-    var diff_ms = Date.now() - dob.getTime();
-    var age_dt = new Date(diff_ms);
+const HomeSec = () => {
 
-    return Math.abs(age_dt.getUTCFullYear() - 1970);
-  }
-  const [data, setData] = useState([]);
-  
-  const [search, setSearch] = useState("");
+    const navigate = useNavigate()
+    const { user } = useAuth()
+    function calculate_age(dob) {
+        var diff_ms = Date.now() - dob.getTime();
+        var age_dt = new Date(diff_ms);
 
-  const [location, setLocation] = useState("");
-  const [showFiltter, setShowFiltter] = useState(false);
-  const [selectAge, setSelectAge] = useState("");
-  const [selectReligion, setSelectReligion] = useState("");
-  const [selectTounge, setSelectTounge] = useState("");
-  const [selectHeight, setSelectHeight] = useState("");
-  const [userData, setUserData] = useState([]);
-
-  const sendMessage = (doc) => {
-    navigate({pathname:`/view-profile/${doc.uid}`})
-
-  }
-  
-  useEffect(() => {
-    if (user.uid) {
-      db.collection("users")
-        .doc(user.uid)
-        .onSnapshot((snapshot) => {
-          setUserData(snapshot.data());
-        });
+        return Math.abs(age_dt.getUTCFullYear() - 1970);
     }
-  }, [user.uid]);
-  
-  useEffect(() => {
-    const unSub = db.collection("users").orderBy("createdAt","desc").onSnapshot((snapshot) => {
-        setData(
-          snapshot.docs
-          .map
-          ((doc) => (doc.data()))
-        )
-        });
-        return ()=> unSub()
-    }, [])
+    const [data, setData] = useState([]);
+    const [search, setSearch] = useState("");
+    const [location, setLocation] = useState("");
+    const [showFiltter, setShowFiltter] = useState(false);
+    const [selectAge, setSelectAge] = useState("");
+    const [selectReligion, setSelectReligion] = useState("");
+    const [selectTounge, setSelectTounge] = useState("");
+    const [selectHeight, setSelectHeight] = useState("");
+    const [userData, setUserData] = useState("");
 
-  return (
-    <>
-       <Section>
+    useEffect(() => {
+        if (user.uid) {
+            db.collection("users")
+                .doc(user.uid)
+                .onSnapshot((snapshot) => {
+                    setUserData(snapshot.data());
+                });
+        }
+    }, [user.uid]);
+
+    useEffect(
+        () =>
+            db
+                .collection("users")
+                .orderBy("createdAt", "desc")
+                .onSnapshot((snapshot) => {
+                    setData(snapshot.docs.map((doc) => doc.data()));
+                }),
+        []
+    );
+
+    const sendMessage = (doc) => {
+        db.collection("users").doc(user.uid).collection("recently_viewed").doc(doc.uid).set({ uid: doc.uid })
+        console.log(doc);
+        navigate({ pathname: `/view-profile/${doc.uid}` })
+
+    }
+
+    return (
+        <Section>
             <div class="column_center">
                 <div class="container">
                     <Speed>
@@ -284,12 +285,10 @@ const NearMe = () => {
             </div>
             <Footer/>
         </Section>
-     
-    </>
-  );
-};
+    )
+}
 
-export default NearMe;
+export default HomeSec;
 
 const Section = styled.div`
 .column_center {
@@ -451,4 +450,3 @@ const Input = styled.div`
     color: orange;
   }
 `;
-

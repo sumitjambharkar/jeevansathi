@@ -43,9 +43,9 @@ const ViewProfile = () => {
       <AboutMe family={userData?.family} qaulification={userData?.qaulification}
       manglik={userData?.manglik} number={userData?.number} work={userData?.work}
       about={userData?.about} aboutFamily={userData?.aboutFamily}/>
-      <EducationCareer employed={userData?.employed} qaulification={userData?.qaulification} collage={userData?.collage} work={userData?.work}/>
+      <EducationCareer income={userData?.income} qaulification={userData?.qaulification} collage={userData?.collage} work={userData?.work}/>
       <FamilyDetails fatherWork={userData?.fatherWork} motherWork={userData?.motherWork} brother={userData?.brother} sister={userData?.sister}/>
-      <LifeStyle/>
+      <LifeStyle habit={userData?.habit}asset={userData?.asset} language={userData.language}blood={userData.blood}/>
     </Container>
     <Footer/>
     </>

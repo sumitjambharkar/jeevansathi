@@ -6,6 +6,7 @@ import useAuth from "../../useContext/useAuth";
 import { db } from "../../../firebase";
 
 const AboutMe = ({ number, family, qaulification, manglik, work,about,aboutFamily }) => {
+  console.log(number);
   const {user} = useAuth()
   
   const [show, setShow] = useState(true);
@@ -14,14 +15,14 @@ const AboutMe = ({ number, family, qaulification, manglik, work,about,aboutFamil
   })
 
   const handleEdit = () => {
-    setEditData({number, family,qaulification, manglik, work,about,aboutFamily
+    setEditData({number, family,qaulification, manglik,work,about,aboutFamily
     });
     setShow(false);
   };
 
   const handleSave = () => {
     db.collection("users").doc(user.uid).update({
-      number:editData.number,family:editData.family,manglik:editData.manglik,
+      number:editData.number,family:editData.family,manglik:editData.manglik,work:editData.work,
       about:editData.about,aboutFamily:editData.aboutFamily,qaulification:editData.qaulification
     });
     setShow(true);

@@ -6,18 +6,18 @@ import useAuth from "../../useContext/useAuth";
 import { db } from "../../../firebase";
 
 
-const BasicDetails = ({qaulification,work,collage,employed}) => {
-
+const BasicDetails = ({qaulification,work,collage,income}) => {
+  
   const {user} = useAuth()
   
   console.log(user);
   const [show, setShow] = useState(true);
   const [editData, setEditData] = useState({
-    qaulification:"",collage:"",employed:"",work:""
+    qaulification:"",collage:"",income:"",work:""
   })
 
   const handleEdit = () => {
-    setEditData({qaulification,work,collage,employed});
+    setEditData({qaulification,work,collage,income});
     setShow(false);
   };
 
@@ -26,7 +26,7 @@ const BasicDetails = ({qaulification,work,collage,employed}) => {
       qaulification:editData.qaulification,
       collage:editData.collage,
       work:editData.work,
-      employed:editData.employed
+      income:editData.income
     });
     setShow(true);
   }
@@ -62,7 +62,7 @@ const BasicDetails = ({qaulification,work,collage,employed}) => {
             </div>
             <div className="col-5">
               <ul>
-                <li>School Name</li>
+                <li>University Name</li>
                 <li>
                   <span>{collage}</span>
                 </li>
@@ -72,27 +72,9 @@ const BasicDetails = ({qaulification,work,collage,employed}) => {
           <div className="row">
             <div className="col-5">
               <ul>
-                <li>UG Degree</li>
-                <li>
-                  <span>No Required</span>
-                </li>
-              </ul>
-            </div>
-            <div className="col-5">
-              <ul>
-                <li>PG Degree</li>
-                <li>
-                  <span>No Required</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-5">
-              <ul>
                 <li>Employed In</li>
                 <li>
-                  <span>{employed}</span>
+                  <span>{income}</span>
                 </li>
               </ul>
             </div>
@@ -119,7 +101,7 @@ const BasicDetails = ({qaulification,work,collage,employed}) => {
             </div>
             <div className="col-5">
               <ul>
-                <li>School Name</li>
+                <li>University Name</li>
                 <li>
                   <input name="collage" value={editData.collage} onChange={handalChange}/>
                 </li>
@@ -129,27 +111,9 @@ const BasicDetails = ({qaulification,work,collage,employed}) => {
           <div className="row">
             <div className="col-5">
               <ul>
-                <li>UG Degree</li>
+                <li>Income</li>
                 <li>
-                  <input name="ug" value={editData.ug} onChange={handalChange}/>
-                </li>
-              </ul>
-            </div>
-            <div className="col-5">
-              <ul>
-                <li>PG Degree</li>
-                <li>
-                  <input name="pg" value={editData.pg} onChange={handalChange}/>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-5">
-              <ul>
-                <li>Employed In</li>
-                <li>
-                  <input name="employed" value={editData.employed} onChange={handalChange}/>
+                  <input name="employed" value={editData.income} onChange={handalChange}/>
                 </li>
               </ul>
             </div>

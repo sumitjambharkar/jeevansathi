@@ -36,7 +36,8 @@ const LifeStyle = () => {
     <Section>
         <Head/>
       <div className="container">
-        <div className="row">
+       <form onSubmit={lifeData}>
+       <div className="row">
           <div className="col-md-2"></div>
 
           <div className="col-md-7">
@@ -48,8 +49,8 @@ const LifeStyle = () => {
                   <label>Family Type</label>
                 </div>
                 <div className="col-md-9">
-                  <select value={family} onChange={(e)=>setFamily(e.target.value)} className="select">
-                    <option>Select</option>
+                  <select required value={family} onChange={(e)=>setFamily(e.target.value)} className="select">
+                    <option value="" disabled>Select</option>
                     <option>Joint Family</option>
                     <option>Nuclear Family</option>
                     <option>Other</option>
@@ -64,8 +65,8 @@ const LifeStyle = () => {
                   <label>Father's Occupation</label>
                 </div>
                 <div className="col-md-9">
-                  <select value={fatherWork} onChange={(e)=>setFatherWork(e.target.value)} className="select">
-                  <option>Select</option>
+                  <select required value={fatherWork} onChange={(e)=>setFatherWork(e.target.value)} className="select">
+                  <option value="" disabled>Select</option>
                     <option>Business/Enterprenur</option>
                     <option>Service/Private</option>
                     <option>Service/Govt/PSU</option>
@@ -86,8 +87,8 @@ const LifeStyle = () => {
                   <label>Mother Occupation</label>
                 </div>
                 <div className="col-md-9">
-                  <select value={motherWork} onChange={(e)=>setMotherWork(e.target.value)} className="select">
-                  <option>Select</option>
+                  <select required value={motherWork} onChange={(e)=>setMotherWork(e.target.value)} className="select">
+                  <option value="" disabled>Select</option>
                   <option>Housewife</option>
                     <option>Business/Enterprenur</option>
                     <option>Service-private</option>
@@ -110,8 +111,8 @@ const LifeStyle = () => {
                   <label>Brother</label>
                 </div>
                 <div className="col-md-9">
-                  <select value={brother} onChange={(e)=>setBrother(e.target.value)} className="select">
-                  <option>Select</option>
+                  <select required value={brother} onChange={(e)=>setBrother(e.target.value)} className="select">
+                  <option value="" disabled>Select</option>
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -127,8 +128,8 @@ const LifeStyle = () => {
                   <label>Sister</label>
                 </div>
                 <div className="col-md-9">
-                  <select value={sister} onChange={(e)=>setSister(e.target.value)} className="select">
-                  <option>Select</option>
+                  <select required value={sister} onChange={(e)=>setSister(e.target.value)} className="select">
+                  <option value="" disabled>Select</option>
                     <option>0</option>
                     <option>1</option>
                     <option>2</option>
@@ -144,10 +145,11 @@ const LifeStyle = () => {
                   <label>Family living In</label>
                 </div>
                 <div className="col-md-9">
-                  <select value={familyLive} onChange={(e)=>setFamilyLive(e.target.value)} className="select">
+                  <select required value={familyLive} onChange={(e)=>setFamilyLive(e.target.value)} className="select">
+                  <option value="" disabled>Select</option>
                     {cit.map((doc)=>(
                         <>
-                        <option>Select</option>
+                        
                     <option>{doc}</option>
                         </>
                     ))}
@@ -162,7 +164,7 @@ const LifeStyle = () => {
                   <label>Contact Address</label>
                 </div>
                 <div className="col-md-9">
-                  <input value={address} onChange={(e)=>setAddress(e.target.value)} type="text" className="input" />
+                  <input required value={address} onChange={(e)=>setAddress(e.target.value)} type="text" className="input" />
                 </div>
               </div>
             </div>
@@ -173,19 +175,20 @@ const LifeStyle = () => {
                   <label>About My Family</label>
                 </div>
                 <div className="col-md-9">
-                  <textarea value={aboutFamily} onChange={(e)=>setAboutFamily(e.target.value)}/>
+                  <textarea required value={aboutFamily} onChange={(e)=>setAboutFamily(e.target.value)}/>
                 </div>
               </div>
             </div>
 
             <div className="col-12">
             <div className="btn">
-            <button onClick={lifeData}>Continue</button>
+            <button type="submit" value="Submit">Continue</button>
             </div>
             </div>
 
           </div>
         </div>
+       </form>
       </div>
       <SimpleFooter/>
     </Section>

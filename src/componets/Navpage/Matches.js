@@ -6,7 +6,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { db } from "../../firebase";
 import useAuth from "../useContext/useAuth";
-import HomeSection from "./HomeSection";
+import HomeSec from "./HomeSec";
 import NearMe from './NearMe';
 import Recently from "./Recently"
 
@@ -15,11 +15,10 @@ const Matches = () => {
 
   const {user}  = useAuth()
   const [near, setNear] = useState([]);
-  const [currentUser, setCurrentUser] = useState([]);
+  const [userData, setUserData] = useState([]);
+  console.log(userData);
   const [userId, setUserId] = useState([]);
 
-  const mumbai = currentUser.city?.toLowerCase()
-  console.warn(near.length);
 
   useEffect(() => {
     const unSub = db
@@ -36,9 +35,12 @@ const Matches = () => {
     const unSub = db
       .collection("users")
       .doc(user.uid)
-      .onSnapshot((snapshot) => setCurrentUser(snapshot.data()));
+      .onSnapshot((snapshot) => setUserData(snapshot.data()));
     return () => unSub();
   }, [user.uid]);
+
+  const mumbai = userData.city?.toLowerCase()
+  console.warn(near.length);
 
   useEffect(() => db
       .collection("users")
@@ -70,7 +72,7 @@ const Matches = () => {
         </TabList>
 
         <TabPanel>
-          <HomeSection />
+          <HomeSec />
         </TabPanel>
          <TabPanel>
           <NearMe />

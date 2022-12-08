@@ -236,6 +236,7 @@ const Container = styled.div`
     font-size: 16px;
     font-family: "Roboto", "sans-serif";
     font-weight: 300;
+    cursor: pointer;
   }
   .detail {
     display: flex;

@@ -239,7 +239,7 @@ const RightNav = ({ open }) => {
        <ul>
        <li className='hide'>
        <Avtars>
-        <Link className='show' onClick={()=>setShow(!show)}>{userDe.displayName}</Link>
+        <Link className='show' onClick={()=>setShow(!show)}>{userDe?.displayName}</Link>
         <Link style={{textTransform: 'capitalize'}} onClick={()=>setShow(!show)}>
         <button><Avatar style={{textTransform: 'capitalize'}}>{user.email?.[0]}</Avatar></button>
         <ArrowDropDownIcon/>

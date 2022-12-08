@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useAuth from "../useContext/useAuth";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const { signUp } = useAuth();
@@ -33,7 +35,17 @@ const Register = () => {
         !profile ||
         !birth
       ) {
-        alert("Please fill in all required fields");
+        toast.error('Please fill in all required fields!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+
       } else {
         signUp(email, password, number, displayName, gender, profile, birth);
         navigate({ pathname: "/profile-deatils" });
@@ -135,7 +147,7 @@ const Register = () => {
                       placeholder="Create New Password"
                       type="password"
                       name="pwd"
-                      maxlength="8"
+                      maxlength="12"
                     ></input>
                   </div>
 
