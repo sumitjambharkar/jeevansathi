@@ -65,7 +65,7 @@ export default function Login() {
   }
   return (
     <div>
-      <Button style={{background:"#FFA500",color:"white"}} onClick={handleOpen}>Login</Button>
+      <Button style={{background:"#fff",color:"#df2349",fontFamily:"Roboto Slab"}} onClick={handleOpen}>Login</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -89,9 +89,9 @@ export default function Login() {
                                   <VisibilityOff style={{color:"black"}}  onClick={showText} />
                                 )}</Button>
             <div style={{height:"40px",marginTop:"12px",textAlign:"center",fontFamily:"sans-serif",fontSize:"15px"}}><span>Forgot Password</span></div>
-            <button onClick={loginUser} style={{height:"40px",marginTop:"6px",background:"#FFA500",border:"none",color:"white"}}>Login</button>
+            <button onClick={loginUser} style={{height:"40px",marginTop:"6px",background:"#df2349",border:"none",color:"white"}}>Login</button>
             <div style={{height:"40px",marginTop:"12px",textAlign:"center",fontFamily:"sans-serif",fontSize:"15px"}}><span>New on Marriage?</span></div>
-            <button onClick={registerNew} style={{height:"40px",marginTop:"6px",background:"#FFA500",border:"none",color:"white"}}>Register Free</button>
+            <button onClick={registerNew} style={{height:"40px",marginTop:"6px",background:"#df2349",border:"none",color:"white"}}>Register Free</button>
           </div>
           </Typography>
         </Box>

@@ -146,8 +146,8 @@ button {
     font-size:24px;
     height: calc(2.5rem);
     width:auto;
-    border: 1px solid #ffa500;
-    background-color:#ffa500;
+    border: 1px solid #df2349;
+    background-color:#df2349;
     color:white;
 
 }
@@ -160,12 +160,12 @@ button {
     font-size: 1.1rem;
     margin-bottom: 1rem;
     margin-top: 0px;
-    color: #FFA500;
+    color:#df2349;
     word-break: break-word;
 }
 > h4 a {
   text-decoration:none;
-  color:#FFA500;
+  color:#df2349;
   
 }
 `
@@ -187,7 +187,7 @@ flex-direction:column;
     border-radius: 0.15rem;
     height: calc(2.5rem);
     width:435px;
-    border: 1px solid #ffa500;
+    border: 1px solid #df2349;
     outline:none;
 }
 > button {
@@ -197,8 +197,8 @@ flex-direction:column;
     border-radius: 0.15rem;
     height: calc(2.5rem);
     width:435px;
-    border: 1px solid #ffa500;
-    background-color:#ffa500;
+    border: 1px solid #df2349;
+    background-color:#df2349;
     color:white;
 
 }
@@ -213,7 +213,7 @@ flex-direction:column;
     border-radius: 0.15rem;
     height: calc(2.5rem);
     width:250px;
-    border: 1px solid #ffa500;
+    border: 1px solid #df2349;
     outline:none;
 }
     

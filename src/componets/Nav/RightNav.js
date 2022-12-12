@@ -29,9 +29,10 @@ const Nav = styled.div`
     color: white;
       text-decoration: none;
       padding: 15px;
-      font-size: 14px;
+      font-size: 16px;
       line-height:50px;
       font-weight:600;
+      font-family: 'FontAwesome';
     
   }
   .name {
@@ -67,7 +68,7 @@ const Nav = styled.div`
     li {
       color: #fff;
       padding-left: 15px;
-      border-bottom: 1px solid #ffa500;
+      border-bottom: 1px solid #df2349;
     }
     li a {
       padding: 0;
@@ -149,7 +150,7 @@ const Avtars = styled.div`
   > a > button {
     margin:4px;
     border:none;
-    background-color: #FFA500;
+    background-color: #df2349;
     
   }
 `

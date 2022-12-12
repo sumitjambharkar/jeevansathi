@@ -6,8 +6,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import images2 from "../image/logos.png";
-
+import images2 from "../image/mrglogo.png";
+import bg from "../image/header-sm-bg.png"
 const Footer = () => {
   return (
     <>
@@ -59,10 +59,12 @@ const Footer = () => {
 export default Footer;
 const FooterSection = styled.div`
  overflow: hidden;
-  background-color:#2e2e2e;
+  background-color:#df2147;
   display: flex;
   justify-content:space-around;
   flex-wrap:wrap;
+  background-repeat: 100% 100%;
+  background-image: url(${bg});
   .float{
     position:fixed;
     width:80px;
@@ -87,11 +89,14 @@ const FooterSection = styled.div`
   
  `
 const FooterDiv = styled.div`
-background-color:#2a2424;
+background-color:#df2147;
 display:flex;
 justify-content:space-around;
+background-repeat: 100% 100%;
+background-image: url(${bg});
 flex-wrap:wrap;
 > h1 {
+  font-family: 'Roboto Slab';
     font-size: 16px;
     padding: 24px 24px;
     color: white;
@@ -101,11 +106,11 @@ const FirstDiv = styled.div`
 padding-top:20px;
 color:white;
   .logoS img {
-    width: 200px;
+    width: 240px;
   }
   > h2 {
     font-size: 24px;
-    font-family: inherit;
+    font-family: 'Roboto Slab';
     font-weight: 400;
   }
   >p{
@@ -113,6 +118,7 @@ color:white;
     padding-bottom: 10px;
     display: block;
     transition: all 0.3s ease-in-out;
+    font-family: 'Roboto Slab';
   }
   >p:hover{
     transform: translate(25px);
@@ -142,7 +148,7 @@ color:white;
 	text-align: center;
 	line-height: 40px;
 	border-radius: 50%;
-	border: 1px solid #ffa500;
+	border: 1px solid #fff;
 	transition: 0.5s;
 }
 > a > MuiSvgIcon-root{
@@ -169,15 +175,16 @@ padding-top:20px;
 color:white;
 > h2 {
     font-size: 24px;
-    font-family: inherit;
+    font-family: 'Roboto Slab';
     font-weight: 400;
   }
   >p > a {
-    color:#FFA500;
+    color:#fff;
     padding-bottom:6px;
     display: block;
     transition: all 0.3s ease-in-out;
     transition: 0.5s;
+    font-family: 'Roboto Slab';
   }
   >p > a:hover{
     transform: translate(25px);
@@ -188,15 +195,16 @@ padding-top:20px;
 color:white;
 > h2 {
     font-size: 24px;
-    font-family: inherit;
+    font-family: 'Roboto Slab';
     font-weight: 400;
   }
   >p > a {
-    color:#FFA500;
+    color:#fff;
     padding-bottom:6px;
     display: block;
     transition: all 0.3s ease-in-out;
     transition: 0.5s;
+    font-family: 'Roboto Slab';
   }
   >p > a:hover{
     transform: translate(15px);

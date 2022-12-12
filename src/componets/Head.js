@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import images2 from "./image/logos.png";
+import images2 from "./image/mrglogored.png";
 
 const Head = () => {
   return (

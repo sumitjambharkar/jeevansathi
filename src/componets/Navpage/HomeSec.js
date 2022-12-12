@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { cit, sta, age, hei, rel, tou, cas } from '../firstPage/data'
 import Footer from "../firstPage/Footer";
+import bg from '../image/header-sm-bg.png';
 
 const HomeSec = () => {
 
@@ -294,7 +295,7 @@ const Section = styled.div`
 .column_center {
     background: #dee9f1;
    
-    background: linear-gradient(45deg, #dee9f1 50%,#f1ede9 57%,#f9eae4 100%);
+    background: linear-gradient(45deg, #dee9f1 0%,#f1ede9 0%,#f9eae4 100%);
    
     padding: 10px 0;
 }
@@ -325,13 +326,14 @@ const Section = styled.div`
     border-right: 1px solid #B8B8B8;
 }
 h3.menu_head {
-    background: #df1f26;
+    background:#df2349;
     padding: 1em 0 1em 2em;
     color: #fff;
     text-transform: uppercase;
     font-size: 0.85em;
     margin: 0;
-    
+    background-repeat: 100% 100%;
+    background-image: url(${bg});
     font-weight: 600;
 
 }
@@ -358,10 +360,13 @@ h3.menu_head {
 }
 .button{
     padding: 10px 10px;
-    background: linear-gradient(to bottom, #e2393e 0%,#d7252b 41%,#b0191e 102%);
+    background:#df2349;
     text-align: center;
     color: #fff;
     cursor:pointer;
+    background-repeat: 100% 100%;
+    background-image: url(${bg});
+    font-family: 'Roboto Slab';
 }
 select {
    WIDTH: 100%;
@@ -411,10 +416,10 @@ const Speed = styled.div`
   ul li select {
     width: 190px;
     padding: 4px;
-    background-color: #ffa500;
+    background-color: #df2349;
     color: white;
     border-radius: 24px;
-    border: 1px solid #ffa500;
+    border: 1px solid #df2349;
     outline: none;
   }
   @media (max-width: 768px) {
@@ -432,9 +437,7 @@ const Input = styled.div`
   border-radius: 24px;
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
   &:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: 1px solid #df2349;
   }
   > input {
     font-size: 15px;
@@ -447,6 +450,6 @@ const Input = styled.div`
     background: none;
   }
   .MuiSvgIcon-root {
-    color: orange;
+    color: #df2349;
   }
 `;

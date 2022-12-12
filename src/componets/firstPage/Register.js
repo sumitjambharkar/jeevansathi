@@ -179,7 +179,7 @@ const Section = styled.div`
     height: 45%;
     margin: 0 10px;
     padding: 0 10px;
-    border: 1px solid #d9d9d9;
+    border: 1px solid #df2349;
     outline: none;
     border-radius: 4px;
     height: 32px;
@@ -191,7 +191,7 @@ const Section = styled.div`
   }
 
   .space label {
-    color: #fff;
+    color:black;
     font-size: 15px;
     font-family: "sans-serif";
     font-weight: 100;
@@ -205,13 +205,13 @@ const Section = styled.div`
   }
 
   .backgrund {
-    background: #0006;
+    
     padding: 2px 22px 4px 0px;
   }
 
   button {
     color: #fff;
-    background-color: #ffa500;
+    background-color:#df2349;
     border: none;
     border-radius: 4px;
   }

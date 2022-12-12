@@ -235,7 +235,7 @@ label{
     margin-top:70px;
 }
 button {
-    background-color: #FFA500;
+    background-color:#df2349;
     padding: 12px;
     color: white;
     border: none;

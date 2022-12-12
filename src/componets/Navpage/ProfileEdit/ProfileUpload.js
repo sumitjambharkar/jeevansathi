@@ -51,7 +51,7 @@ const ProfileUpload = ({image,displayName,gender}) => {
             <label>
               {image? <img className="img_face"  src={image} alt=""/> : <>{gender==="Male"? <img src={man} className="img_face"/>:<img src={girl} className="img_face"/>}</> }
         <Input onChange={(e)=>setImag(e.target.files[0])} accept="image/*" id="icon-button-file" type="file" />
-        <IconButton style={{display:"flex",fontWeight:"500",color:"white",border:"#FFA500",backgroundColor: "#FFA500",borderRadius:"1px",width:"80%"}} aria-label="upload picture" component="span">
+        <IconButton style={{display:"flex",fontWeight:"500",color:"white",border:"#FFA500",backgroundColor: "#df2349",borderRadius:"1px",width:"80%"}} aria-label="upload picture" component="span">
           <PhotoCamera />
         </IconButton>
       </label>

@@ -37,6 +37,7 @@ import Navbar from "../Nav/Navbar";
 import Footer from "../firstPage/Footer";
 import girl from "../image/girl.jpeg";
 import man from "../image/man.jpeg";
+import bg from '../image/header-sm-bg.png';
 const Viewpage = () => {
 
   const { Id } = useParams()
@@ -760,7 +761,9 @@ ul li {
 }
 
 .contact  li:hover{
-    background-color:#ffa500;
+    background-color:#df2349;
+    background-repeat: 100% 100%;
+    background-image: url(${bg});
 }
 
 .blocks{
@@ -890,11 +893,14 @@ button{
     width: 100%;
     color: #fff;
     padding: 5px 0px;
-    background-color: #ffa500;
+    background-color: #df2349;
+    border: 1px solid #df2349;
+    background-repeat: 100% 100%;
+    background-image: url(${bg});
 }
 .scope{
-    color: #ffa500;
-    border:1px solid #ffa500;
+    color:#fff;
+    border:1px solid #df2349;
 margin: 10px 0;
 background-color: #fbf7f7;
 

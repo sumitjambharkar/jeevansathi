@@ -181,7 +181,7 @@ const Inbox = () => {
                         <div className="col-3">
                           <div className="im">
                             {doc.data.image ? (
-                              <img className="img" src={doc.data.image} />
+                              <img className="img_img" src={doc.data.image} />
                             ) : (
                               <AccountCircleIcon />
                             )}
@@ -446,7 +446,7 @@ const Inbox = () => {
                         <div className="col-3">
                           <div className="im">
                             {doc.data.image ? (
-                              <img className="img" src={doc.data.image} />
+                              <img className="img_img" src={doc.data.image} />
                             ) : (
                               <AccountCircleIcon />
                             )}

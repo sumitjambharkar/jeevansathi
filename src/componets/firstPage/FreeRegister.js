@@ -263,7 +263,7 @@ const Section = styled.div`
     font-weight: 400;
   }
   button {
-    background-color: #ffa500;
+    background-color:#df2349;
     padding: 12px;
     color: white;
     border: none;

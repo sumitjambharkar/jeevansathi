@@ -1,72 +1,39 @@
 import React, {useState } from "react";
 import styled from "styled-components";
 import Shaadi from '../image/photo.jpg'
-import Logoo from '../image/nl.png'
+import Logoo from '../image/logoe.png'
 import Login from "./Login";
 import Register from "./Register";
-
+import bg from "../image/header-sm-bg.png"
 const Header = () => {
   
   return (
     <>
-     
-      <Head>
         <Navbar>
-          <Logo><h1>MARRIAGE</h1>
+          <Logo><h1>Marriage</h1>
             <img className="App-logo" src={Logoo} alt=""/>
-            <h1>RBIT</h1>
+            <h1>Orbit</h1>
           </Logo>
             <Loginn>       
                 <Login/>
             </Loginn>
-        </Navbar>
-        <Heading>
-          <h2>Trusted Matrimony & Matchmaking Service</h2>
-          <p>Let's Start New Journey</p>
-        </Heading>
-       <Register/>
-      </Head>
+       </Navbar>
     </>
   );
 };
 export default Header;
-const Head = styled.div`
-  background-image: url(${Shaadi});
-  z-index: 1;
-  position: relative;
-  min-height:600px;
-  background-size:cover;
-  background-repeat: no-repeat;
-  align-items: center;
-  .login {
-    display: none;
-  }
-  .signup {
-    display: none;
-  }
-  @media (max-width:500px) {
-  min-height:100%;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  
-  }
-  @media (max-width:800px) {
-  min-height:100%;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-
-  
-  }
-`;
-
 
 const Navbar = styled.div`
   display: flex;
   justify-content: space-around;
-  position: relative;
-  padding-top:20px;
-  background-color:#00000061;
-  position:static;
+  align-items: center;
+  background-repeat: 100% 100%;
+  z-index: 1;
+  background-image: url(${bg});
+  position:fixed;
+  height: 94px;
+  line-height: 20px;
+  width: 100%;
   @media (max-width:500px) {
     
   }
@@ -78,10 +45,10 @@ const Logo = styled.div`
     cursor: pointer;
 
 > h1 {
-  font-size: 30px;
-    font-weight: 600;
-    color: #FFA500;
-    font-family: poppins;
+  font-size: 35px;
+    font-weight:300;
+    color: #fff;
+    font-family: 'Lobster', cursive;
 }
 
 .App-logo {
@@ -101,7 +68,7 @@ const Logo = styled.div`
    >h1 {
     font-size: 20px;
     font-weight: 600;
-    color: #FFA500;
+    color: #fff;
     font-family: poppins;
   }
   .App-logo {
@@ -143,7 +110,6 @@ const Loginn = styled.div`
 `;
 const Heading = styled.div`
   text-align: center;
-  margin-top:310px;
   position: relative;
   color:#FFA500;
   >  p{
