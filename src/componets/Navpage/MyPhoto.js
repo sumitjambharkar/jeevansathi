@@ -1,6 +1,6 @@
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { Helmet } from "react-helmet";
-import { Avatar, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDoc, doc, updateDoc } from "firebase/firestore";
@@ -24,7 +24,7 @@ function MyPhoto() {
       .onSnapshot((snapshot) => {
         setProfile(snapshot.data());
       });
-  }, []);
+  },);
 
   useEffect(() => {
     getDoc(doc(db, "users", user.uid)).then((docSnap) => {

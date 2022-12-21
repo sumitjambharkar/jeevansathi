@@ -136,7 +136,7 @@ export default function Setting() {
                   />
                   </Input>
                   <p></p>
-                  <Button style={{background:'#FFA500',color:"white"}}  onClick={changeEmail}>Submit</Button>
+                  <Button style={{background:'#df2349',color:"white"}}  onClick={changeEmail}>Submit</Button>
                 </>
               ) : (
                 ""
@@ -163,7 +163,7 @@ export default function Setting() {
                   />
                   </Input>
                   <p></p>
-                  <Button  style={{background:'#FFA500',color:"white"}}  onClick={changePassword}>Submit</Button>
+                  <Button  style={{background:'#df2349',color:"white"}}  onClick={changePassword}>Submit</Button>
                 </>
               ) : (
                 ""
@@ -179,7 +179,7 @@ const Input = styled.div`
   > input {
     width: 270px;
     height: 40px;
-    border: 1px solid #ffa500;
+    border: 1px solid #df2349;
     border-radius: 2px;
     padding:4px;
   }

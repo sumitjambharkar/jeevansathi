@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import styled from "styled-components";
+import logo from '../image/mrglogored.png'
 import {
   collection,
   query,
@@ -131,7 +132,7 @@ const Home = () => {
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
            <Header>
-            <h3>Marroageorbit.com</h3>
+            <img className="logo" src={logo} alt='logo'/>
             <Input>
             <input
               placeholder="search Name" value={search} onChange={(e)=>setSearch(e.target.value)}
@@ -225,8 +226,11 @@ display: flex;
 justify-content: space-around;
 align-items: center;
 height: 80px;
+>.logo {
+  width: 200px;
+}
 > h3 {
-  color:orange;
+  color:red;
 }
 @media (max-width:500px) {
   >h3 {
@@ -259,6 +263,6 @@ const Input = styled.div`
     outline: none;
   }
   .MuiSvgIcon-root {
-    color: orange;
+    color:red;
   }
 `;

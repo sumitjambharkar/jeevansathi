@@ -1,9 +1,7 @@
-import React, {useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import Shaadi from '../image/photo.jpg'
 import Logoo from '../image/logoe.png'
 import Login from "./Login";
-import Register from "./Register";
 import bg from "../image/header-sm-bg.png"
 const Header = () => {
   
@@ -69,7 +67,7 @@ const Logo = styled.div`
     font-size: 20px;
     font-weight: 600;
     color: #fff;
-    font-family: poppins;
+    font-family: 'Lobster', cursive;
   }
   .App-logo {
     width: 2rem;

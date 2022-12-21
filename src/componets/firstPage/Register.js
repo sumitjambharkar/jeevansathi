@@ -214,5 +214,6 @@ const Section = styled.div`
     background-color:#df2349;
     border: none;
     border-radius: 4px;
+    font-family: "Roboto Slab";
   }
 `;

@@ -11,6 +11,7 @@ import Setting from './setting/Setting';
 import DeleteUser from './setting/DeleteUser'
 import useAuth from '../useContext/useAuth';
 import { db } from '../../firebase';
+import Badge from '@mui/material/Badge';
 
 
 const Nav = styled.div`
@@ -30,7 +31,7 @@ const Nav = styled.div`
       text-decoration: none;
       padding: 15px;
       font-size: 16px;
-      line-height:50px;
+      line-height:32px;
       font-weight:600;
       font-family: 'FontAwesome';
     
@@ -186,7 +187,7 @@ const RightNav = ({ open }) => {
   const navigate = useNavigate()
   const {user,logout} = useAuth()
   const [userDe, setUserDe] = useState("")
-
+  const [noti,setNoti] = useState([])
   const signOut = () => {
     logout()
     navigate({pathname:"/"})
@@ -201,6 +202,14 @@ const RightNav = ({ open }) => {
       setUserDe(snapshot.data())
     ))
   }, [])
+  
+  useEffect(() => {
+    db.collection("lastMsg").onSnapshot(snapshot=>(
+      setNoti(snapshot.docs.map((doc)=>doc.data()))   
+    ))
+  }, [])
+
+  const notification = noti.filter((doc)=>(doc.to === user.uid && doc.unread))
   
   
   return (
@@ -224,7 +233,7 @@ const RightNav = ({ open }) => {
        <ul className=''>
        <li><Link to="/">Matches</Link></li>
        <li><Link to="/my-profile">Account</Link></li>
-       <li><Link to="/chat">Chat</Link></li>
+       <li><Link to="/chat">{notification.length  ?<Badge  badgeContent={notification.length} color="primary">Chat</Badge>:null}</Link></li>
        <li><Link to="/search">Search</Link></li>
        <li><Link to="/myphoto">My Photo</Link></li>
        <li><Link to="/gallery">Gallery</Link></li>
@@ -242,7 +251,7 @@ const RightNav = ({ open }) => {
        <Avtars>
         <Link className='show' onClick={()=>setShow(!show)}>{userDe?.displayName}</Link>
         <Link style={{textTransform: 'capitalize'}} onClick={()=>setShow(!show)}>
-        <button><Avatar style={{textTransform: 'capitalize'}}>{user.email?.[0]}</Avatar></button>
+        <button><Avatar style={{textTransform: 'capitalize'}}>{userDe.email?.[0]}</Avatar></button>
         <ArrowDropDownIcon/>
         </Link>
         {show ? <>
@@ -258,10 +267,10 @@ const RightNav = ({ open }) => {
        </li>
        <li className='name'>
         <div className='user'>
-        <Avatar  style={{textTransform: 'capitalize'}}>{user.displayName?.[0]}</Avatar>
+        <Avatar  style={{textTransform: 'capitalize'}}>{userDe.displayName?.[0]}</Avatar>
         <span>
         <p >.</p>
-        <a  style={{textTransform: 'capitalize'}}>{user.displayName}</a>
+        <a style={{textTransform: 'capitalize'}}>{userDe.displayName}</a>
         </span>
         </div>
     <div className='use'>

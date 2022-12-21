@@ -375,7 +375,7 @@ const Container = styled.div`
     margin-top: 4%;
   }
   .btn button {
-    background-color: #ffa500;
+    background-color:#df2349;
     width: 120px;
     height: 100%;
     padding: 4px;

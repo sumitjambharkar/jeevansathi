@@ -41,14 +41,14 @@ li {
     background: #34eb52;
   }
   .offline {
-    background: var(--color-5);
+    background:red;
   }
   
   .messages_user {
     display: flex;
     padding: 5px;
     text-align: center;
-    border-bottom:1px solid #FFA500;
+    border-bottom:1px solid #df2349;
     font-family: 'Roboto';
   }
   .messages_user h3 {
@@ -75,11 +75,11 @@ li {
     padding: 10px;
     border-radius: 5px;
     outline: none;
-    border:1px solid #FFA500;
+    border:1px solid #df2349;
   }
   .message_form .btn {
     margin-top: -10px;
-    background-color: #FFA500;
+    background-color: #df2349;
     color: white;
   }
   .messages {
@@ -111,15 +111,15 @@ li {
     text-align: right;
   }
   .me {
-    background:#FFA500;
+    background:#df2349;
     color: white;
   }
   .friend {
-    background:#FFA500;
+    background:#df2349;
     color: white;
   }
   .selected_user {
-    background:#FFA500;
+    background:#df2349;
     color: white;
   }
   .truncate {
@@ -133,10 +133,24 @@ li {
     margin-right: 10px;
   }
   .unread {
+    font-size: 14px;
+    text-align: center;
     margin-left: 10px;
-    background: var(--color-3);
-    color: white;
-    padding: 2px 4px;
+    background:white;
+    color:#df2349;
+    border-radius: 10px;
+    padding:4px;
+    border: 1px solid #df2349;
+  }
+  .notification {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 50px;
+    margin-top: -55px;
+    background:white;
+    color:#df2349;
     border-radius: 10px;
   }
   .sm_screen {

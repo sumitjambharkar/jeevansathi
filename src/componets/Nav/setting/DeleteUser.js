@@ -102,7 +102,7 @@ export default function BasicModal() {
             />
               </Input>
               <p></p>
-            <Button style={{background:'#FFA500',color:"white"}}  onClick={sendPassword}>Submit</Button>
+            <Button style={{background:'#df2349',color:"white"}}  onClick={sendPassword}>Submit</Button>
             </>
              : ""
               }
@@ -131,7 +131,7 @@ const Input = styled.div`
   > input {
     width: 270px;
     height: 40px;
-    border: 1px solid #ffa500;
+    border: 1px solid #df2349;
     border-radius: 2px;
     padding:4px;
   }

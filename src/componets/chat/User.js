@@ -2,12 +2,23 @@ import React, { useEffect, useState } from "react";
 import { onSnapshot, doc,orderBy } from "firebase/firestore";
 import Avatar from '@mui/material/Avatar';
 import { db } from "../../firebase";
+import Noti from "./Noti";
+import { useNavigate } from "react-router-dom";
 
 
 const User = ({ user1, user, selectUser, chat }) => {
+
+  const navigate = useNavigate()
   
   const user2 = user?.uid;
   const [data, setData] = useState("");
+
+  const notification = () => {
+    navigate({
+      pathname: "/chat",
+      state:null,
+    });
+  }
 
   useEffect(() => {
     const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
@@ -28,11 +39,7 @@ const User = ({ user1, user, selectUser, chat }) => {
           <div className="user_detail">
             <Avatar src={user.image} alt="avatar" />
             <h4>{user.displayName}</h4>
-            {data?.from !== user1 && data?.unread && (
-             <>
-              <small className="unread" >New</small>
-             </>
-            )}
+              <Noti data={data} user1={user1} notification={notification} />
           </div>
           <div
             className={`user_status ${user.isOnline ? "online" : "offline"}`}
