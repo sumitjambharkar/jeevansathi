@@ -6,7 +6,7 @@ import useAuth from "../../useContext/useAuth";
 import { db } from "../../../firebase";
 
 const AboutMe = ({ number, family, qaulification, manglik, work,about,aboutFamily }) => {
-  console.log(number);
+
   const {user} = useAuth()
   
   const [show, setShow] = useState(true);

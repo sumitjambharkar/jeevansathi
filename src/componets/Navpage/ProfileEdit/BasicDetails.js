@@ -8,7 +8,6 @@ import { db } from "../../../firebase";
 
 const BasicDetails = ({displayName,gender,height,religion,tounge,income,location,caste}) => {
   const {user} = useAuth()
-  console.log(rel);
   const [show, setShow] = useState(true);
   const [editData, setEditData] = useState({
     displayName: "",

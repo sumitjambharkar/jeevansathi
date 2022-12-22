@@ -136,10 +136,10 @@ li {
     font-size: 14px;
     text-align: center;
     margin-left: 10px;
-    background:white;
-    color:#df2349;
+    background:#1976d2;
+    color:#fff;
     border-radius: 10px;
-    padding:4px;
+    padding:2px;
     border: 1px solid #df2349;
   }
   .notification {

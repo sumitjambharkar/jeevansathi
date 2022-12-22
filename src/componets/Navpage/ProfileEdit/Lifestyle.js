@@ -9,7 +9,6 @@ const Lifestyle = ({habit,asset,language,blood}) => {
 
   const {user} = useAuth()
   
-  console.log(user);
   const [show, setShow] = useState(true);
   const [editData, setEditData] = useState({
     habit:"",asset:"",language:"",blood:""

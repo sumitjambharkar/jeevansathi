@@ -233,7 +233,7 @@ const RightNav = ({ open }) => {
        <ul className=''>
        <li><Link to="/">Matches</Link></li>
        <li><Link to="/my-profile">Account</Link></li>
-       <li><Link to="/chat">{notification.length  ?<Badge  badgeContent={notification.length} color="primary">Chat</Badge>:null}</Link></li>
+       <li><Link to="/chat">{notification.length  ? <Badge  badgeContent={notification.length} color="primary">Chat</Badge>:"Chat"}</Link></li>
        <li><Link to="/search">Search</Link></li>
        <li><Link to="/myphoto">My Photo</Link></li>
        <li><Link to="/gallery">Gallery</Link></li>

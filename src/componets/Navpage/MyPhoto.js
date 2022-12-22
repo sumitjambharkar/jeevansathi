@@ -181,9 +181,9 @@ function MyPhoto() {
 
       <div className="container">
         <div className="row mt-5 mb-5">
-          {card.map((ele) => (
+          {card.map((ele,i) => (
             <>
-              <div className="col-md-3">
+              <div key={i} className="col-md-3">
                 <div className="pic">
                   <img src={ele.data.image} alt="" />
                   <div className="pic1">

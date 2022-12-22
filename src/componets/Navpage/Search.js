@@ -38,13 +38,13 @@ const Search = () => {
       <div className='col-md-7'>
         <div className='searr'>
         <select>
-          {age.map((ele)=>(
-            <option>{ele}</option>
+          {age.map((ele,i)=>(
+            <option key={i}>{ele}</option>
           ))}
         </select>
         <select>
-        {age.map((ele)=>(
-            <option>{ele}</option>
+        {age.map((ele,i)=>(
+            <option key={i}>{ele}</option>
           ))}
         </select>
         </div>
@@ -58,13 +58,13 @@ const Search = () => {
       <div className='col-md-7'>
         <div className='searr'>
         <select>
-          {hei.map((ele)=>(
-            <option>{ele}</option>
+          {hei.map((ele,i)=>(
+            <option key={i}>{ele}</option>
           ))}
         </select>
         <select>
-          {hei.map((ele)=>(
-            <option>{ele}</option>
+          {hei.map((ele,i)=>(
+            <option key={i}>{ele}</option>
           ))}
         </select>
         </div>
@@ -96,7 +96,7 @@ const Search = () => {
         <div className='ser'>
         <select>
              <option >Select</option>
-                 {rel.map((ele)=>{
+                 {rel.map((ele,i)=>{
                      return <option >{ele}</option>
                  })}
              </select>
@@ -111,8 +111,8 @@ const Search = () => {
       <div className='col-md-7'>
         <div className='ser'>
         <select>
-        {cas.map((ele)=>(
-            <option>{ele}</option>
+        {cas.map((ele,i)=>(
+            <option key={i}>{ele}</option>
           ))}
         </select>
         </div>
@@ -126,8 +126,8 @@ const Search = () => {
       <div className='col-md-7'>
         <div className='ser'>
         <select>
-        {mot.map((ele)=>(
-            <option>{ele}</option>
+        {mot.map((ele,i)=>(
+            <option key={i}>{ele}</option>
           ))}
         </select>
         </div>
@@ -141,8 +141,8 @@ const Search = () => {
       <div className='col-md-7'>
         <div className='ser'>
         <select>
-        {cit.map((ele)=>(
-            <option>{ele}</option>
+        {cit.map((ele,i)=>(
+            <option key={i}>{ele}</option>
           ))}
         </select>
         </div>
@@ -173,9 +173,9 @@ const Search = () => {
   </div>
   <div className='container'>
     <div className='row mt-5 mb-5'>
-    {card.map((ele)=>(
+    {card.map((ele,i)=>(
     <>
-     <div className='col-md-3'>
+     <div key={i} className='col-md-3'>
      <div className='pic'>
      <img src={ele.data.image} alt=''/>
       <div className='pic1'>

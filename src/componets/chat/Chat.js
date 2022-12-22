@@ -35,11 +35,11 @@ const Home = () => {
   const [img, setImg] = useState("");
   const [msgs, setMsgs] = useState([]);
   const [gender, setGender] = useState("");
-  console.log(gender.gender);
+  
 
 
   const user1 = auth.currentUser.uid;
-  console.log(user1);
+
 
   useEffect(() => {
     if (user1) {
@@ -60,7 +60,6 @@ const Home = () => {
   }, []);
   
   const selectUser = async (user) => {
-    console.log(user);
     setChat(user);
 
     const user2 = user.uid;
@@ -120,7 +119,12 @@ const Home = () => {
       media: url || "",
       unread: true,
     });
-
+    await db.collection("users").doc(user1).collection("messages").doc(id).update({
+      createdAt: Timestamp.fromDate(new Date()),
+    })
+    await db.collection("users").doc(user2).collection("messages").doc(id).update({
+      createdAt: Timestamp.fromDate(new Date()),
+    })
     setText("");
     setImg("");
   };

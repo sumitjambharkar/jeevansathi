@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Avatar, Container } from "@mui/material";
@@ -502,6 +503,7 @@ const HomeSection = () => {
                           ) : (
                             <>
                               {doc.image ? (
+                    
                                 <img
                                   style={{ height: 250, width: "100%" }}
                                   src={doc.image}

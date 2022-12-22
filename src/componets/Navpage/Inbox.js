@@ -39,7 +39,7 @@ const Inbox = () => {
   const [req, setReq] = useState([]);
   const [accepted, setAccepted] = useState([]);
   const [received, setReceived] = useState([]);
-  console.log(userData);
+  
 
   useEffect(() => {
     db.collection("users")
@@ -175,8 +175,8 @@ const Inbox = () => {
               <div className="row">
                 <div className="col-2"></div>
                 <div className="col-8">
-                  {received.map((doc) => (
-                    <div className="fl">
+                  {received.map((doc,i) => (
+                    <div key={i} className="fl">
                       <div className="row">
                         <div className="col-3">
                           <div className="im">
@@ -268,8 +268,8 @@ const Inbox = () => {
               <div className="row">
                 <div className="col-2"></div>
                 <div className="col-8">
-                  {accepted.map((doc) => (
-                    <div className="fl">
+                  {accepted.map((doc,i) => (
+                    <div key={i} className="fl">
                       <div className="row">
                         <div className="col-3">
                           <div className="im">
@@ -361,8 +361,8 @@ const Inbox = () => {
               <div className="row">
                 <div className="col-2"></div>
                 <div className="col-8">
-                  {req.map((doc) => (
-                    <div className="fl">
+                  {req.map((doc,i) => (
+                    <div key={i} className="fl">
                       <div className="row">
                         <div className="col-3">
                           <div className="im">
@@ -440,8 +440,8 @@ const Inbox = () => {
               <div className="row">
                 <div className="col-2"></div>
                 <div className="col-8">
-                  {sent.map((doc) => (
-                    <div className="fl">
+                  {sent.map((doc,i) => (
+                    <div key={i} className="fl">
                       <div className="row">
                         <div className="col-3">
                           <div className="im">

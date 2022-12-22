@@ -10,7 +10,7 @@ const BasicDetails = ({qaulification,work,collage,income}) => {
   
   const {user} = useAuth()
   
-  console.log(user);
+
   const [show, setShow] = useState(true);
   const [editData, setEditData] = useState({
     qaulification:"",collage:"",income:"",work:""
